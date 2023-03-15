@@ -70,7 +70,7 @@ function start() {
 
 function check() {
     var checkit = document.getElementById('input').value;
-    document.getElementById('instruct').innerHTML = checkit;
+    
 }
 
 app.listen(3000, () => {
