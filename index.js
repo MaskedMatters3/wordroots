@@ -20,19 +20,29 @@ function anim2() {
         console.log("TEST3");
         var element = document.getElementById('theGame');
         element.style.top = "-100px"
-        element.style.display = "block"
+        element.style.visibility = "visible"
         element.classList.add('anim3')
-        anim3();
     }, 1000)
 
 }
 
-function anim3() {
+function wordRoot() {
+    var rand = Math.floor(Math.random() * 9);
+    var arr = {
+        able,
+        ible,
+        ac,
+        ic,
+        acious,
+        icious,
+        al,
+        ant,
+        ent
+    }
 
+    return arr[rand];
 }
 
-document.onkeyup = function(e) {
-    if(e.keyCode == 32) {
-        document.getElementById('gameRoot').innerHTML = ""
-    }
+function start() {
+    document.getElementById('gameRoot').innerHTML = wordRoot();
 }

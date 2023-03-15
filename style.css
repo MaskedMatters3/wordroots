@@ -32,13 +32,20 @@ body { font-family: 'Roboto', sans-serif; }
     animation-duration: 1s
 }
 
-.game {
+#theGame {
     position: relative;
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
+
+    visibility: hidden;
+}
+
+#gameRoot {
+    border: none;
+    background-color: white;
 }
 
 @-webkit-keyframes anim1 {
