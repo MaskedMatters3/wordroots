@@ -51,16 +51,6 @@ body { font-family: 'Roboto', sans-serif; }
     to{ top:0px; opacity:1 }
 }
 
-@-webkit-keyframes anim3 {
-    from { top: 0; opacity:0 } 
-    to { top: -100px;; opacity:1 }
-}
-
-@keyframes anim3 { 
-    from{ top:0; opacity:0 } 
-    to{ top: -100px; opacity:1 }
-}
-
 @-webkit-keyframes anim2 {
     from { top:0; } 
     to { top:-200px; }
@@ -69,4 +59,14 @@ body { font-family: 'Roboto', sans-serif; }
 @keyframes anim2 { 
     from{ top:0; } 
     to{ top:-200px; }
+}
+
+@-webkit-keyframes anim3 {
+    from { top: 0; opacity:0 } 
+    to { top: -100px;; opacity:1 }
+}
+
+@keyframes anim3 { 
+    from{ top:0; opacity:0 } 
+    to{ top: -100px; opacity:1 }
 }
