@@ -2,48 +2,71 @@
 
 body { font-family: 'Roboto', sans-serif; }
 
-.animatescreen {
+#cred {
     position: relative;
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
+}
 
-    -webkit-animation-name: animatebottom;
+.anim1 {
+    -webkit-animation-name: anim1;
     -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
+    animation-name: anim1;
+    animation-duration: 1s
+}
+
+.anim2 {
+    -webkit-animation-name: anim2;
+    -webkit-animation-duration: 1s;
+    animation-name: anim2;
+    animation-duration: 1s
+}
+
+.anim3 {
+    -webkit-animation-name: anim3;
+    -webkit-animation-duration: 1s;
+    animation-name: anim3;
     animation-duration: 1s
 }
 
 .game {
+    position: relative;
+
     display: flex;
+    flex-direction: column;
+
     align-items: center;
 }
 
-/* .afteranimate {
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 1s;
-    animation-name: animatetop;
-    animation-duration: 1s
-} */
-
-@-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 } 
-    to { bottom:0px; opacity:1 }
+@-webkit-keyframes anim1 {
+    from { top:100px; opacity:0 } 
+    to { top:0; opacity:1 }
 }
 
-@keyframes animatebottom { 
-    from{ bottom:-100px; opacity:0 } 
-    to{ bottom:0px; opacity:1 }
+@keyframes anim1 { 
+    from{ top:100px; opacity:0 } 
+    to{ top:0px; opacity:1 }
 }
 
-/* @-webkit-keyframes animatetop {
-    from { bottom:0px; opacity:0 } 
-    to { bottom:200px; opacity:1 }
+@-webkit-keyframes anim3 {
+    from { top: 0; opacity:0 } 
+    to { top: -100px;; opacity:1 }
 }
 
-@keyframes animatetop { 
-    from{ bottom:0px; opacity:0 } 
-    to{ bottom:200px; opacity:1 }
-} */
+@keyframes anim3 { 
+    from{ top:0; opacity:0 } 
+    to{ top: -100px; opacity:1 }
+}
+
+@-webkit-keyframes anim2 {
+    from { top:0; } 
+    to { top:-200px; }
+}
+
+@keyframes anim2 { 
+    from{ top:0; } 
+    to{ top:-200px; }
+}
