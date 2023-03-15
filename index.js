@@ -1,5 +1,3 @@
-var gameStart;
-
 function loadanim() {
 
     console.log("TEST");
@@ -28,21 +26,51 @@ function anim2() {
 
 function wordRoot() {
     var rand = Math.floor(Math.random() * 9);
-    var arr = {
-        able,
-        ible,
-        ac,
-        ic,
-        acious,
-        icious,
-        al,
-        ant,
-        ent
-    }
+    var arr = [
+        "able",
+        "ible",
+        "ac",
+        "ic",
+        "acious",
+        "icious",
+        "al",
+        "ant",
+        "ent"
+    ]
 
     return arr[rand];
 }
 
+var gameStart = false;
+var origin;
+
 function start() {
-    document.getElementById('gameRoot').innerHTML = wordRoot();
+
+    if (gameStart == false) {
+        origin = wordRoot();
+        var root = "<h1>" + origin + "</h1>";
+        document.getElementById('gameRoot').innerHTML = "";
+        setTimeout(() => {
+            document.getElementById('gameRoot').innerHTML = root;
+            document.getElementById('instruct').innerHTML = "Type a word that has this word root."
+        }, 1000)
+
+        gameStart = true;
+    }
+}
+
+function check() {
+    if(gameStart == true) {
+        var checkit = document.getElementById('input').value;
+
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            const file = e.target.result;
+ 
+            // This is a regular expression to identify carriage
+            // Returns and line breaks
+            const lines = file.split(/\r\n|\n/);
+            textarea.value = lines.join('\n');
+        };
+    }
 }
