@@ -1,25 +1,8 @@
-const express = require('express');
-const fs = require('fs');
-const app = express();
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-})
-
-app.get('/index.js', (req, res) => {
-    res.sendFile(__dirname + '/index.js');
-})
-
-app.get('/style.css', (req, res) => {
-    res.sendFile(__dirname + '/style.css');
-})
-
-var words = fs.readFileSync('words.txt').toString().split("\n");
+import { words } from "./words.js"
 
 var origin;
 
 function loadanim() {
-
     console.log("TEST");
 
     setTimeout(() => {
@@ -29,7 +12,6 @@ function loadanim() {
         element.style.top = "-200px"
         anim2();
     }, 1500);
-
 }
 
 function anim2() {
