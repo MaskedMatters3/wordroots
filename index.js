@@ -14,7 +14,8 @@ app.get('/style.css', (req, res) => {
     res.sendFile(__dirname + '/style.css');
 })
 
-var gameStart = 0;
+var words = fs.readFileSync('words.txt').toString().split("\n");
+
 var origin;
 
 function loadanim() {
@@ -69,8 +70,17 @@ function start() {
 }
 
 function check() {
-    var checkit = document.getElementById('input').value;
-    
+    var correct = false;
+    var checkit = document.getElementById('input').value.toLowerCase();
+    for(ob in words) {
+        console.log(ob);
+        if(ob == checkit) {
+            //correct = ob.includes(origin);
+            correct = true;
+            break;
+        }
+    }
+    document.getElementById('instruct').innerHTML = correct;
 }
 
 app.listen(3000, () => {
