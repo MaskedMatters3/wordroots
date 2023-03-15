@@ -1,3 +1,22 @@
+const express = require('express');
+const fs = require('fs');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+})
+
+app.get('/index.js', (req, res) => {
+    res.sendFile(__dirname + '/index.js');
+})
+
+app.get('/style.css', (req, res) => {
+    res.sendFile(__dirname + '/style.css');
+})
+
+var gameStart = false;
+var origin;
+
 function loadanim() {
 
     console.log("TEST");
@@ -41,12 +60,12 @@ function wordRoot() {
     return arr[rand];
 }
 
-var gameStart = false;
-var origin;
-
 function start() {
+    console.log("555")
 
     if (gameStart == false) {
+        console.log("TESToefhiuwef")
+
         origin = wordRoot();
         var root = "<h1>" + origin + "</h1>";
         document.getElementById('gameRoot').innerHTML = "";
@@ -61,16 +80,10 @@ function start() {
 
 function check() {
     if(gameStart == true) {
-        var checkit = document.getElementById('input').value;
 
-        let reader = new FileReader();
-        reader.onload = (e) => {
-            const file = e.target.result;
- 
-            // This is a regular expression to identify carriage
-            // Returns and line breaks
-            const lines = file.split(/\r\n|\n/);
-            textarea.value = lines.join('\n');
-        };
     }
 }
+
+app.listen(3000, () => {
+    console.log("Started on https://localhost:3000/");
+})
