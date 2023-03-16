@@ -1,11 +1,12 @@
-var origin;
+let origin;
+let usedWords = [];
 
 function loadanim() {
     console.log("TEST");
 
     setTimeout(() => {
         console.log("TEST2");
-        var element = document.getElementById('cred');
+        let element = document.getElementById('cred');
         element.classList.add('anim2');
         element.style.top = "-200px"
         anim2();
@@ -16,7 +17,7 @@ function anim2() {
 
     setTimeout(() => {
         console.log("TEST3");
-        var element = document.getElementById('theGame');
+        let element = document.getElementById('theGame');
         element.style.top = "-100px"
         element.style.visibility = "visible"
         element.classList.add('anim3')
@@ -25,9 +26,13 @@ function anim2() {
 
 }
 
+function anim3() {
+
+}
+
 function wordRoot() {
-    var rand = Math.floor(Math.random() * 9);
-    var arr = [
+    let rand = Math.floor(Math.random() * 9);
+    let arr = [
         "able",
         "ible",
         "ac",
@@ -44,24 +49,39 @@ function wordRoot() {
 
 function start() {
     origin = wordRoot();
-    document.getElementById('gameRoot').innerHTML = "";
+    document.getElementById('instruct').style.color = "black";
     document.getElementById('gameRoot').innerHTML = origin;
     document.getElementById('instruct').innerHTML = "Type a word that has this word root."
 }
 
 function check() {
-    var correct = false;
-    var checkit = document.getElementById('input').value.toLowerCase();
-
-    console.log('Word: ' + checkit)
-    console.log('Checking Words: ' + words)
-
-    for(word in words) {
-        if(word == checkit) {
-            //correct = ob.includes(origin);
-            correct = true;
+    let correct = false;
+    let checkit = document.getElementById('input').value.toLowerCase();
+    
+    for(let i = 0; i < words.length; i++) {
+        if(words[i] == checkit && usedWords.includes(checkit) == false) {
+            correct = words[i].includes(origin);
+            console.log('Cor. Word: ' + words[i])
             break;
         }
     }
-    document.getElementById('instruct').innerHTML = correct;
+
+    if(correct == true) {
+        document.getElementById('instruct').style.color = "#A3F255";
+        document.getElementById('instruct').innerHTML = "CORRECT!!";
+        usedWords.push(checkit)
+
+        setTimeout(() => { // THIS IS A REALLY WEIRD WAY TO SET TIMEOUT
+            start()        // THIS IS A REALLY WEIRD WAY TO SET TIMEOUT
+        }, 2000);          // THIS IS A REALLY WEIRD WAY TO SET TIMEOUT
+    }
+    else if(usedWords.includes(checkit) == true) {
+        document.getElementById('instruct').style.color = "#F2433D";
+        document.getElementById('instruct').innerHTML = "USED THE SAME WORD TWICE!! TRY AGAIN";
+    }
+    else {
+        document.getElementById('instruct').style.color = "#F2433D";
+        document.getElementById('instruct').innerHTML = "INCORRECT!! TRY AGAIN";
+        usedWords.push(checkit)
+    }
 }
