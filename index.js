@@ -1,5 +1,3 @@
-import { words } from "./words.js"
-
 var origin;
 
 function loadanim() {
@@ -54,9 +52,12 @@ function start() {
 function check() {
     var correct = false;
     var checkit = document.getElementById('input').value.toLowerCase();
-    for(ob in words) {
-        console.log(ob);
-        if(ob == checkit) {
+
+    console.log('Word: ' + checkit)
+    console.log('Checking Words: ' + words)
+
+    for(word in words) {
+        if(word == checkit) {
             //correct = ob.includes(origin);
             correct = true;
             break;
@@ -64,7 +65,3 @@ function check() {
     }
     document.getElementById('instruct').innerHTML = correct;
 }
-
-app.listen(3000, () => {
-    console.log("Started on https://localhost:3000/");
-})
